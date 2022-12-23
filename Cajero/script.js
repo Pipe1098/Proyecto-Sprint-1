@@ -128,7 +128,7 @@ function retirarDinero(cantidadARetirar) {
     });
 
     dineroEnCajero -= totalARetirar;
-
+// Mostramos la info
     if (totalARetirar < cantidadARetirar) alert("Te dimos lo que se pudo");
     console.log("Resultado transacción:", { aEntregar, totalARetirar, billetes, dineroEnCajero });
     // return { aEntregar, totalARetirar };
