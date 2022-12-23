@@ -45,7 +45,7 @@ const billetes = [
 
 //Variable para saber cuanto dinero hay disponible
 let dineroEnCajero = 0;
-
+let aRetirar = 0;
 //Funcion principal donde se piden datos al usuario para despues saber que funcion usar y que datos o mensajes entregar 
 function main() {
     const usuario = login(); //invocamos la funcion login y guardamos en una constante
@@ -58,7 +58,7 @@ function main() {
         if (dineroEnCajero === 0)
             return console.log("Cajero en mantenimiento, vuelva pronto.");
 
-        const aRetirar = parseInt(prompt("Cuanto desea retirar?"));
+        aRetirar = parseInt(prompt("Cuanto desea retirar?"));
 
         if (aRetirar > dineroEnCajero)
             return console.log("No hay suficiente dinero");
@@ -128,9 +128,11 @@ function retirarDinero(cantidadARetirar) {
     });
 
     dineroEnCajero -= totalARetirar;
-// Mostramos la info
-    if (totalARetirar < cantidadARetirar) alert("Te dimos lo que se pudo");
-    console.log("Resultado transacción:", { aEntregar, totalARetirar, billetes, dineroEnCajero });
+    // Mostramos la info
+    if (totalARetirar < aRetirar) {
+        alert('Te dimos lo que se pudo')
+    }
+    console.log("Resultado transacción:", { aRetirar, aEntregar, totalARetirar, billetes, dineroEnCajero });
     // return { aEntregar, totalARetirar };
 }
 
